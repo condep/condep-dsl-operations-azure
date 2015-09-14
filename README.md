@@ -1,5 +1,5 @@
-condep-dsl-operations-aws
-=========================
+condep-dsl-operations-azure
+===========================
 Provide Operations for interacting with Microsoft Azure.
 
 Need help?
