@@ -1,6 +1,6 @@
 condep-dsl-operations-azure
 ===========================
-Provide Operations for interacting with Microsoft Azure.
+Provide ConDep Operations for interacting with Microsoft Azure.
 
 Need help?
 ----------
