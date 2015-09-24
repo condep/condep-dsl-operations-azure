@@ -4,9 +4,9 @@ Provide ConDep Operations for interacting with Microsoft Azure.
 
 Need help?
 ----------
-Documentation for ConDep can be found here: [http://www.condep.io/docs](http://www.condep.io/docs)
-
-Talk and ask questions about ConDep on [Google Groups](https://groups.google.com/forum/#!forum/con-dep).
+* [Documentation](http://www.condep.io/docs)
+* [Google Groups](https://groups.google.com/forum/#!forum/con-dep)
+* [Gitter](https://gitter.im/condep?utm_source=share-link&utm_medium=link&utm_campaign=share-link)
 
 Found a bug?
 ------------
