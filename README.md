@@ -1,5 +1,7 @@
 condep-dsl-operations-azure
 ===========================
+[![Build status: Windows](https://ci.appveyor.com/api/projects/status/3ds0modb2ctfx7c4/branch/master?svg=true)](https://ci.appveyor.com/project/torresdal/condep-dsl-operations-azure/branch/master)
+
 Provide ConDep Operations for interacting with Microsoft Azure.
 
 Need help?
