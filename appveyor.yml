@@ -4,7 +4,7 @@ branches:
   - master
 configuration:
 - Release
-build:
+build_script:
 - ps: .\build.ps1
 artifacts:
 - path: .\build\output\**\*.nupkg
