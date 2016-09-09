@@ -2,7 +2,7 @@
 	$pwd = Split-Path $psake.build_script_file	
 	$build_directory  = "$pwd\output\condep-dsl-operations-azure"
 	$configuration = "Release"
-	$preString = "-beta8"
+	$preString = "-beta14"
 	$releaseNotes = ""
 	$nunitPath = "$pwd\..\src\packages\NUnit.ConsoleRunner.3.4.1\tools"
 	$nuget = "$pwd\..\tools\nuget.exe"

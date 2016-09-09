@@ -11,7 +11,7 @@ artifacts:
   name: NuGet
 deploy:  
 - provider: NuGet
-  server: https://www.myget.org/F/condep/api/v3/package
+  server: https://www.myget.org/F/condep/api/v2/package
   api_key:
     secure: dZ7xFcrnaPlBwtVoMWhKpmP36QDQeBLQi9ir3yhjPVNtTlPWJ7Q9TFjN3lh9TOW9
   skip_symbols: true
