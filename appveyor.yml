@@ -4,15 +4,10 @@ branches:
   - master
 configuration:
 - Release
-before_build:
-- ps: nuget restore src/condep-dsl-operations-azure.sln
 build:
-  project: src\condep-dsl-operations-azure.sln
-os: Visual Studio 2015
-install:
-- set PATH=C:\Program Files (x86)\MSBuild\14.0\Bin;%PATH%
+- ps: .\build.ps1
 artifacts:
-- path: .\artifacts\**\*.nupkg
+- path: .\build\output\**\*.nupkg
   name: NuGet
 deploy:  
 - provider: NuGet
@@ -20,4 +15,3 @@ deploy:
   api_key:
     secure: dZ7xFcrnaPlBwtVoMWhKpmP36QDQeBLQi9ir3yhjPVNtTlPWJ7Q9TFjN3lh9TOW9
   skip_symbols: true
-  artifact: /.*\.nupkg/
