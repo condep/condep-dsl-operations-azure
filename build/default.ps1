@@ -2,7 +2,7 @@
 	$pwd = Split-Path $psake.build_script_file	
 	$build_directory  = "$pwd\output\condep-dsl-operations-azure"
 	$configuration = "Release"
-	$preString = "-beta14"
+	$preString = "-beta15"
 	$releaseNotes = ""
 	$nunitPath = "$pwd\..\src\packages\NUnit.ConsoleRunner.3.4.1\tools"
 	$nuget = "$pwd\..\tools\nuget.exe"
@@ -46,8 +46,8 @@ task Create-BuildSpec-ConDep-Dsl-Operations-Azure {
 	Generate-Nuspec-File `
 		-file "$build_directory\condep.dsl.operations.azure.nuspec" `
 		-version $(GetNugetAssemblyVersion $build_directory\ConDep.Dsl.Operations.Azure\ConDep.Dsl.Operations.Azure.dll) `
-		-id "condep-dsl-operations-azure" `
-		-title "condep-dsl-operations-azure" `
+		-id "ConDep.Dsl.Operations.Azure" `
+		-title "ConDep.Dsl.Operations.Azure" `
 		-licenseUrl "http://www.con-dep.net/license/" `
 		-projectUrl "http://www.con-dep.net/" `
 		-description "Note: This package is for extending the ConDep DSL with operations for Azure." `
