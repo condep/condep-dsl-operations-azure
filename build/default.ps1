@@ -34,7 +34,7 @@ task Build {
 }
 
 task Test {
-	Exec { & $nunitPath\nunit3-console.exe $build_directory\ConDep.Dsl.Operations.Azure.Tests\ConDep.Dsl.Operations.Azure.Tests.dll --output=$build_directory\TestResult.xml }
+	Exec { & $nunitPath\nunit3-console.exe $build_directory\ConDep.Dsl.Operations.Azure.Tests\ConDep.Dsl.Operations.Azure.Tests.dll --work=".\output" }
 }
 
 task Clean {
