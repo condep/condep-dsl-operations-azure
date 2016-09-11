@@ -2,7 +2,7 @@
 	$pwd = Split-Path $psake.build_script_file	
 	$build_directory  = "$pwd\output\condep-dsl-operations-azure"
 	$configuration = "Release"
-	$preString = "-beta17"
+	$preString = "-localBuild"
 	$releaseNotes = ""
 	$nunitPath = "$pwd\..\src\packages\NUnit.ConsoleRunner.3.4.1\tools"
 	$nuget = "$pwd\..\tools\nuget.exe"
@@ -19,7 +19,6 @@ function GetNugetAssemblyVersion($assemblyPath) {
 }
 
 task default -depends Build-All, Test-All, Pack-All
-task ci -depends Build-All, Pack-All
 
 task Build-All -depends Clean, RestoreNugetPackages, Build, Create-BuildSpec-ConDep-Dsl-Operations-Azure
 task Test-All -depends Test
