@@ -18,11 +18,12 @@ function GetNugetAssemblyVersion($assemblyPath) {
 	return "$($versionInfo.FileMajorPart).$($versionInfo.FileMinorPart).$($versionInfo.FileBuildPart)$preString"
 }
 
-task default -depends Build-All, Test-All, Pack-All
+task default -depends Build-All, Test-All
+task Build-Package -depends Build-All, Test-All, Pack-All
 
-task Build-All -depends Clean, RestoreNugetPackages, Build, Create-BuildSpec-ConDep-Dsl-Operations-Azure
+task Build-All -depends Clean, RestoreNugetPackages, Build
 task Test-All -depends Test
-task Pack-All -depends Pack-ConDep-Dsl-Operations-Azure
+task Pack-All -depends Create-BuildSpec-ConDep-Dsl-Operations-Azure, Pack-ConDep-Dsl-Operations-Azure
 
 task RestoreNugetPackages {
 	Exec { & $nuget restore "$pwd\..\src\condep-dsl-operations-azure.sln" }
@@ -37,11 +38,12 @@ task Test {
 }
 
 task Clean {
-	Write-Host "Cleaning Build output"  -ForegroundColor Green
+	Write-Host "Cleaning Build output.."  -ForegroundColor Green
 	Remove-Item $build_directory -Force -Recurse -ErrorAction SilentlyContinue
 }
 
 task Create-BuildSpec-ConDep-Dsl-Operations-Azure {
+    Write-Host "Creating nuget spec file.."  -ForegroundColor Green
 	Generate-Nuspec-File `
 		-file "$build_directory\condep.dsl.operations.azure.nuspec" `
 		-version $(GetNugetAssemblyVersion $build_directory\ConDep.Dsl.Operations.Azure\ConDep.Dsl.Operations.Azure.dll) `
@@ -65,5 +67,6 @@ task Create-BuildSpec-ConDep-Dsl-Operations-Azure {
 }
 
 task Pack-ConDep-Dsl-Operations-Azure {
+    Write-Host "Creating nuget package.."  -ForegroundColor Green
 	Exec { & $nuget pack "$build_directory\condep.dsl.operations.azure.nuspec" -OutputDirectory "$build_directory" }
 }
