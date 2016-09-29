@@ -7,12 +7,21 @@ configuration:
 build_script:
 - ps: .\build.ps1
 #- ps: .\buildBeta.ps1
+#- ps: .\buildRelease.ps1
 artifacts:
 - path: .\build\output\**\*.nupkg
-  name: NuGet
-#deploy:  
+  name: NuGet  
+  
+#deploy:  #section for beta deploy
 #- provider: NuGet
 #  server: https://www.myget.org/F/condep/api/v2/package
 #  api_key:
 #    secure: dZ7xFcrnaPlBwtVoMWhKpmP36QDQeBLQi9ir3yhjPVNtTlPWJ7Q9TFjN3lh9TOW9
+#  skip_symbols: true
+
+#deploy:  #section for release deploy
+#- provider: NuGet
+#  server: https://www.nuget.org/api/v2/package
+#  api_key:
+#    secure: R1enqK1S0wSeBKf5gfRMaENJHac25u/t9Xs6lonebpAk6ZcFCoYP/bM4SGuRzpTw
 #  skip_symbols: true
