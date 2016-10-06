@@ -1,4 +1,4 @@
-version: 1.0.0-beta0001
+version: 1.0.0-beta0002
 branches:
   only:
   - master
