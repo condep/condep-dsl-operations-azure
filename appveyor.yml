@@ -1,4 +1,4 @@
-version: 1.0.0
+version: 1.0.0-beta0001
 branches:
   only:
   - master
@@ -8,8 +8,8 @@ assembly_info:
   patch: true
   file: '**\AssemblyInfo.*'
   assembly_version: '{version}'
-  assembly_file_version: '{version}-beta0001'
-  assembly_informational_version: '{version}-beta0001'
+  assembly_file_version: '{version}'
+  assembly_informational_version: '{version}'
 build_script:
 - ps: .\build.ps1
 artifacts:
