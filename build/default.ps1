@@ -12,9 +12,9 @@ include .\..\tools\psake_ext.ps1
 Framework '4.6x64'
 
 function GetNugetAssemblyVersion($assemblyPath) {
-    $versionInfo = Get-Item $assemblyPath | % versioninfo
-	$versionInfo
-    return "$($versionInfo.FileVersion)"
+    #$versionInfo = Get-Item $assemblyPath | % versioninfo
+    #return "$($versionInfo.FileVersion)"
+    return $env:APPVEYOR_BUILD_VERSION
 }
 
 task default -depends Build-All, Test-All, Pack-All
