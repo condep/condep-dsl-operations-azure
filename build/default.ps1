@@ -2,7 +2,6 @@
 	$pwd = Split-Path $psake.build_script_file	
 	$build_directory  = "$pwd\output\condep-dsl-operations-azure"
 	$configuration = "Release"
-	$preString = "-localBuild"
 	$releaseNotes = ""
 	$nunitPath = "$pwd\..\src\packages\NUnit.ConsoleRunner.3.4.1\tools"
 	$nuget = "$pwd\..\tools\nuget.exe"
@@ -15,11 +14,10 @@ Framework '4.6x64'
 function GetNugetAssemblyVersion($assemblyPath) {
 	$versionInfo = Get-Item $assemblyPath | % versioninfo
 
-	return "$($versionInfo.FileMajorPart).$($versionInfo.FileMinorPart).$($versionInfo.FileBuildPart)$preString"
+	return "$($versionInfo.FileVersion)"
 }
 
-task default -depends Build-All, Test-All
-task Build-Package -depends Build-All, Test-All, Pack-All
+task default -depends Build-All, Test-All, Pack-All
 
 task Build-All -depends Clean, RestoreNugetPackages, Build
 task Test-All -depends Test
@@ -45,7 +43,7 @@ task Clean {
 task Create-BuildSpec-ConDep-Dsl-Operations-Azure {
     Write-Host "Creating nuget spec file.."  -ForegroundColor Green
 	Generate-Nuspec-File `
-		-file "$build_directory\condep.dsl.operations.azure.nuspec" `
+		-file "$build_directory\condep.dsl.operations.azure.$(GetNugetAssemblyVersion $build_directory\ConDep.Dsl.Operations.Azure\ConDep.Dsl.Operations.Azure.dll).nuspec" `
 		-version $(GetNugetAssemblyVersion $build_directory\ConDep.Dsl.Operations.Azure\ConDep.Dsl.Operations.Azure.dll) `
 		-id "ConDep.Dsl.Operations.Azure" `
 		-title "ConDep.Dsl.Operations.Azure" `
@@ -68,5 +66,5 @@ task Create-BuildSpec-ConDep-Dsl-Operations-Azure {
 
 task Pack-ConDep-Dsl-Operations-Azure {
     Write-Host "Creating nuget package.."  -ForegroundColor Green
-	Exec { & $nuget pack "$build_directory\condep.dsl.operations.azure.nuspec" -OutputDirectory "$build_directory" }
+	Exec { & $nuget pack "$build_directory\condep.dsl.operations.azure.$(GetNugetAssemblyVersion $build_directory\ConDep.Dsl.Operations.Azure\ConDep.Dsl.Operations.Azure.dll).nuspec" -OutputDirectory "$build_directory" }
 }
