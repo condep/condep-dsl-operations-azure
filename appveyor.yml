@@ -4,12 +4,14 @@ branches:
   - master
 configuration:
 - Release
+init:
+  -ps: .\build\init.ps1
 assembly_info:
   patch: true
   file: '**\AssemblyInfo.*'
-  assembly_version: '{version}.{build}'
-  assembly_file_version: '{version}.{build}'
-  assembly_informational_version: '{version}.{build}'
+  assembly_version: "$(assembly_version)"
+  assembly_file_version: "$(assembly_file_version)"
+  assembly_informational_version: "$(assembly_informational_version)"
 build_script:
 - ps: .\build.ps1
 artifacts:
