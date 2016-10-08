@@ -5,7 +5,7 @@ branches:
 configuration:
 - Release
 install:
-- ps: .\build\init.ps1
+- ps: .\build\install.ps1
 assembly_info:
   patch: true
   file: '**\AssemblyInfo.*'
