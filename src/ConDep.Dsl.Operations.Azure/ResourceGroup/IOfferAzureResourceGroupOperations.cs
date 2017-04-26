@@ -1,6 +1,6 @@
 ﻿namespace ConDep.Dsl
 {
-    public interface IOfferAzureResourceGroupOperations
+    public interface IOfferAzureResourceGroupOperations : IOfferResult
     {
     }
 }
